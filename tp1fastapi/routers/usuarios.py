@@ -47,4 +47,4 @@ def obtener_usuario(
 
     usuario = db_usuarios[user_id - 1]
     return {"usuario": usuario, "categoria": categoria}
-# user_id es válido, devuelve el diccionario con detalles del usuario y la categoría. Si no, se lanza una excepción HTTP 404 que es un usuario no fue encontrado
+# user_id es válido, devuelve el diccionario con detalles del usuario y la categoría. Si no, se lanza una excepción HTTP 404 que es un usuario que no se encontro
