@@ -2,11 +2,11 @@ from typing import Annotated
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field
 from dependencies import verify_api_token
-# Este router maneja los endpoints relacionados con los productos, incluyendo agregar y listar productos
+# Este router maneja los endpoints relacionados con los productos, incluyendo agregar y hacer listas de productos
 
 router = APIRouter(prefix="/productos", tags=["Productos"]) 
 db_productos = []
-# Lista vacía al inicio para almacenar los productos agregados
+# Cree una lista vacía para almacenar los productos que despues se agregan
 
 class EstruProducto(BaseModel):
     nombre: str
@@ -22,10 +22,10 @@ def agregar_producto(
     db_productos.append(nuevo)
     return {"message": "Producto agregado exitosamente", "producto": nuevo}
 # El endpoint para agregar un nuevo producto recibe un objeto EstruProducto en el cuerpo de la solicitud,
-# valida el token de autenticación mediante la dependencia, y si es válido, agrega el producto
+# valida el token de autenticación atraves la dependencia, y si es válido, agrega el producto
 
 @router.get("/")
 def listar_productos():
     return {"productos": db_productos}
-# El endpoint para listar productos devuelve la lista completa de productos almacenados en la base de datos simulada
+# El endpoint para piner en la lista los productos, devuelve la lista completa de productos almacenados en la base de datos simulada
 
